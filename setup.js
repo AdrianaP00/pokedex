@@ -13,7 +13,6 @@ async function getAllPokemons() {
       .catch((error) => console.log("error", error));
   });
 
-
   setTimeout(() => {
     loadingCompletion();
   }, 1000);

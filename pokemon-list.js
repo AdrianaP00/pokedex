@@ -33,6 +33,9 @@ function updatePokemonList() {
 
 function createPokeCard(poky) {
   div_ = document.createElement("div");
+  div_.addEventListener("click", function () {
+    openInfo(poky.id);
+  });
   div_.classList.add(
     "pokemon-render-result-container",
     "container",
