@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeDex</title>
-    <script src="./setup.js" defer></script>
-    <script src="./pokemon-list.js" defer></script>
-    <script src="./info.js" defer></script>
+    <script src="./js/setup.js" defer></script>
+    <script src="./js/info.js" defer></script>
+    <script src="./js/pokemon-list.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body onload="getAllPokemons()" class="row">
-    <!--Setup Loading Div-->
+
     <div id="loading-div">
         <img src="src/pokeball-icon.png" class="loading-ball">
     </div>
 
-    <!--Search Bar and render search pokemon-->
     <div id="pokedex-list" class="column">
 
-        <!--Search Bar-->
         <div id="search-bar-container" class="row container margin-40">
             <input id="search-input" onkeydown="search()" placeholder="Search your Pokemon">
             <div id="start-search-button" class="center">
@@ -29,36 +27,30 @@
         </div>
 
         <div id="pokedex-list-render-container">
-            <!--Render here-->
+
         </div>
     </div>
-    
-    <!--responsive current pokemon-->
+
     <div id="current-pokemon-responsive-background" class="hide"></div>
     <div id="current-pokemon-responsive-close" class="hide" onclick="closePokemonInfo()"><img src="src/close-icon.png"></div>
 
-    <!--current selected pokemon-->
+
     <div id="current-pokemon-container" class="container column center">
     
 
         <img id="current-pokemon-image" src="src/no-pokemon-selected-image.png">
 
-        <!--Info-->
+
         <div id="current-pokemon-info" class="hide">
-            <!--Id-->
             <span id="current-pokemon-id" class="font-size-12 bold">#213</span>
             
-            <!--name-->
             <h2 id="current-pokemon-name">Pikachu</h2>
 
-            <!--types-->
             <div id="current-pokemon-types" class="row center"></div>
 
-            <!--description-->
             <h4>Pokedex Entry</h4>
             <span id="current-pokemon-description"></span>
 
-            <!--height and weight-->
             <div class="row center">
                 <div class="width-100 column center margin-5">
                     <h4>Height</h4>
@@ -70,7 +62,6 @@
                 </div>
             </div>
 
-            <!--abilities-->
             <div class="column">
                 <h4>Abilities</h4>
                 <div class="row">
@@ -79,7 +70,6 @@
                 </div>
             </div>
 
-            <!--stats-->
             <h4>Stats</h4>
             <div class="row center">
                 <div class="current-pokemon-stats-container column">
@@ -126,7 +116,7 @@
                 </div>
             </div>
 
-            <!--Evolution chain-->
+
             <div id="current-pokemon-evolution-chain-container">
                 <h4>Evolution</h4>
                 <div class="row center">
@@ -139,7 +129,7 @@
             </div>
         </div>
 
-        <!--Empty-->
+
         <div id="current-pokemon-empty">
             <span class="font-size-18">Select a Pokemon<br>to display here.</span>
         </div>

@@ -88,7 +88,7 @@ function search() {
   let pokeSrc = document.getElementById("search-input").value.toLowerCase();
   currentList = pokeArray.filter((poke) =>
     poke.name.toLowerCase().includes(pokeSrc)
-  );
+  ).sort((a, b) => a.id - b.id);
 
   let containerDiv = document.getElementById("pokedex-list-render-container");
 

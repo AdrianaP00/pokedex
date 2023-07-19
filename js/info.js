@@ -23,7 +23,7 @@ async function fetchPokemonInfo(id) {
     .then((response) => response.json())
     .catch((error) => console.log("error", error));
 
-  pokemon = pokeArray[--id];
+  let pokemon = pokeArray[--id];
 
   setupPokemonAbout(pokemon, species);
   setupPokemonStats(pokemon);

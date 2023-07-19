@@ -1,21 +1,22 @@
 let pokeArray = [];
 
 async function getAllPokemons() {
-  let pokeObj = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=898")
-    .then((response) => response.json())
-    .then((result) => result.results)
-    .catch((error) => console.log("error", error));
+  try {
+    let pokeObj = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=898");
+    let result = await pokeObj.json();
+    let pokeResults = result.results;
 
-  pokeObj.forEach((poke) => {
-    fetch(poke.url)
-      .then((response) => response.json())
-      .then((result) => pokeArray.push(result))
-      .catch((error) => console.log("error", error));
-  });
+    for (let i = 0; i < pokeResults.length; i++) {
+      let pokeUrl = pokeResults[i].url;
+      let response = await fetch(pokeUrl);
+      let pokeData = await response.json();
+      pokeArray.push(pokeData);
+    }
 
-  setTimeout(() => {
     loadingCompletion();
-  }, 1000);
+  } catch (error) {
+    console.log("pokError", error);
+  }
 }
 
 function loadingCompletion() {
@@ -26,8 +27,8 @@ function loadingCompletion() {
     loadingDiv.classList.replace("hideLoading", "hide");
     document.body.style.overflow = "unset";
   }, 500);
-  
+
   currentList = pokeArray.sort((a, b) => a.id - b.id);
-  
+
   updatePokemonList();
 }
